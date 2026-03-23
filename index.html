@@ -228,10 +228,10 @@
         let isPlaying = false;
         let currentColumn = 0;
 
-        // Аудіо контекст
+        // аудіо контекст
         let audioCtx = null;
 
-        // Ініціалізація аудіо контексту
+        // ініціалізація аудіо контексту
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -239,7 +239,7 @@
             return audioCtx;
         }
 
-        // Відтворення ноти
+        // відтворення ноти
         function playNote(frequency, duration, color) {
             if (!audioCtx) return;
 
@@ -259,7 +259,7 @@
             oscillator.start(now);
             oscillator.stop(now + duration);
 
-            // Візуальний ефект
+            // візуальний ефект
             const status = document.getElementById('status');
             status.innerHTML = `🎵 Грає нота: ${getNoteNameByFrequency(frequency)} 🎵`;
             status.style.backgroundColor = color;
@@ -280,7 +280,7 @@
             return 'Невідома нота';
         }
 
-        // Отримання стану від сервера
+        // отримання стану від сервера
         async function loadState() {
             try {
                 const response = await fetch('/api/state');
@@ -296,7 +296,7 @@
             }
         }
 
-        // Оновлення легенди
+        // оновлення легенди
         function updateLegend() {
             const legendDiv = document.getElementById('legend');
             legendDiv.innerHTML = '';
